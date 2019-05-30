@@ -4,10 +4,13 @@
 //  each question will be a if statement determining what to do if the user answers
 // 
 
+var startgame;
+var correctAnswers=0;
+var incorrectAnswers=0;
+var timeRemaining=false;
 
+decrement 
 
-
-var startgame = setTimeout(function(){
-    // $("#timer").on("click")
-     console.log("startgame",);
-},1000)
+$(".btn").on("click", function(){
+    setTimeout(,3000)
+})
