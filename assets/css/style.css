@@ -1,3 +1,28 @@
 .jumbotron{
-    background-color:lightgray;
+    background-image: url("https://www.nationalgeographic.com/content/dam/travel/2019-digital/yosemite-guide/yosemite-national-park-california.ngsversion.1552510235776.adapt.1900.1.jpg");
+    position: relative;
+    height: 100vh;
+}
+.game{
+    position: absolute;
+    left: 650px;
+    top: 300px;
+}
+.game1{
+    position: absolute;
+    left: 710px;
+    top:50%;
+}
+.display-4{
+    margin-left: 550px;
+}
+.lead{
+    margin-left: 545px;
+}
+.btn{
+    margin-left: 563px;
+}
+.endGame{
+    color:white;
+    font-size: 24px;
 }
