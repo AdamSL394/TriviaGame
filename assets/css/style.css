@@ -2,6 +2,7 @@
     background-image: url("https://www.nationalgeographic.com/content/dam/travel/2019-digital/yosemite-guide/yosemite-national-park-california.ngsversion.1552510235776.adapt.1900.1.jpg");
     position: relative;
     height: 100vh;
+    margin-bottom: 0px !important;
 }
 #q{
     position: absolute;
@@ -10,8 +11,16 @@
 }
 #answers{
     position: absolute;
+    margin-left: 560px;
   }
-
+  #answerImage{
+    position: absolute;
+    left: 500px;
+    top: 400px;
+    width: 100px;
+    height: 100px;
+    
+}
 .timer{
     position: absolute;
     left: 710px;
@@ -40,5 +49,13 @@
 .endGame{
     color:white;
     font-size: 24px;
+    bottom: -25px;
+    position: absolute;
+    margin-left: 570px;
+}
+#footer{
+    background-color: black;
+    height: 21px;
+    color:grey;
 }
 

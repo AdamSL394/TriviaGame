@@ -8,7 +8,7 @@ var startGame;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
 var timeRemaining = false;
-var number = 5;
+var number = 15;
 var questionIndex = 0;
 
 var question = [
@@ -45,7 +45,7 @@ $("#stop").on("click", stop);
 
 function renderQuestion() {
     $("#answers").empty();
-    $(".Jumbotron").empty();
+    
     if (questionIndex !== 3) {
         $("#q").html("<p>" + question[questionIndex].q + "</p>");
         for(var i= 0; i < question[questionIndex].a.length; i++){
@@ -64,6 +64,7 @@ function renderQuestion() {
     stop()
 }
     
+
 function run() {
     clearInterval(startGame);
     renderQuestion();
@@ -72,6 +73,7 @@ function run() {
 
 function decrement() {
     number--;
+    $("#answerImages").empty();
     $("#showNumber").html(number);
     if (number === 0) {
         stop();
@@ -94,19 +96,34 @@ function stop() {
     clearInterval(startGame);
 } 
 
+var correctImage = $("<img>")
 
 $("#answers").on("click", ".answer-button", function(){
     var userClicked = $(this).data("name")
+  
         if(userClicked === question[questionIndex].c){
-            console.log("correct!")
-        var correctImage = $("<img>")
-        console.log(question[questionIndex].c)
+       
+        var correctImage = $("<img>")    
+
+        correctImage = $("<img>")
+        
+
         correctImage.attr("src", question[questionIndex].image)
-        $(".jumbotron").append(correctImage)
+        $("#answerImage").html(correctImage)
+       
         correctAnswers++;
         questionIndex++;
         renderQuestion();
-       
+        restartTimer()
+        
        
     }
+    else {
+        incorrectAnswers++
+        questionIndex++;
+        renderQuestion();
+        run()
+        console.log("incorrect")
+    }
 })
+console.log(correctImage)
