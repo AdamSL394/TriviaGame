@@ -4,22 +4,37 @@
     height: 100vh;
     margin-bottom: 0px !important;
 }
+
+#answers{
+    
+    position: relative;
+    margin: 0 auto;
+  }
+  .middle{
+    /* position: relative;
+    margin: 960px; */
+}
 #q{
     position: absolute;
     left: 590px;
     top: 350px;
+    margin-left: 35px;
 }
-#answers{
+#answerImage{
     position: absolute;
-    margin-left: 560px;
-  }
-  #answerImage{
-    position: absolute;
-    left: 500px;
+    left: 0%;
     top: 400px;
     width: 100px;
     height: 100px;
     
+}
+
+#answerFact{
+    position: absolute;
+    top: 0;
+    color: white;
+    width: 500px;
+    height: 70px;
 }
 .timer{
     position: absolute;
@@ -37,6 +52,11 @@
 #q4{
     top: 480px;
 }
+#incorrectAnswer{
+    margin-left: 560px;
+    color:white;
+    margin-top: 100px;
+}
 .display-4{
     margin-left: 550px;
 }
@@ -49,9 +69,10 @@
 .endGame{
     color:white;
     font-size: 24px;
-    bottom: -25px;
+    bottom: 0px;
     position: absolute;
-    margin-left: 570px;
+    top: 700px;
+   
 }
 #footer{
     background-color: black;
