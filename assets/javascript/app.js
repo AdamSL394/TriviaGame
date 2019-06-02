@@ -52,12 +52,18 @@ var question = [
 ]
 
 // starts the game and calls on the run function
+
+
+
 $(".start").on("click", run);
+$("#restartGameButton").hide();
 
 // Picking a question function 
 // Emptys Answer
 function renderQuestion() {
+    
     restartTimer();
+    
     $("#answerFact").empty();
     $("#answerImage").empty();
     $("#answers").empty();
@@ -84,22 +90,28 @@ function renderQuestion() {
     // if there are no more question to render *** question index = 3 
     else {
         // Print to the screen 
-        $(".endGame").html(" Final Score " + "correct: " + correctAnswers + " incorrect: " + incorrectAnswers);
+        $("#incorrectAnswer").html(" Final Score " + "correct: " + correctAnswers + " incorrect: " + incorrectAnswers);
         stop();
-        $("#showNumber").text("Game Over" );
+        $(".endGame").text("Game Over" );
+        $("#showNumber").hide();
         
         
         
         
         var restartGameButton = $("<button>");
         restartGameButton.attr("class", "btn btn-primary btn-lg");
+        
+
         $("#restartGameButton").append(restartGameButton);
         $("#restartGameButton").text(" Restart Game ")
+        $("#restartGameButton").show();
         $("#restartGameButton").on("click",function(){
             correctAnswers=0;
             incorrectAnswers=0;
             questionIndex=0;
             run();
+        $("#restartGameButton").hide();
+        $(".endGame").hide();
 
         })
     }
@@ -139,18 +151,20 @@ function run() {
     startGame = setInterval(decrement, 1000);
     
     $(".start").hide();
-    $(".endGame").hide();
-    $("#restartGameButton").hide();
+    $("#showNumber").show();
+    
 }
 
 function decrement() {
     number--;
+    
    
     $("#showNumber").html(number);
     if (number === 0) { 
         wrongChoice();
         $("#questionsAsked").empty()
         $("#answers").empty();
+       
         
     }
 }
@@ -174,10 +188,10 @@ function correctChoice(){
          questionIndex++;
          correctAnswers++
         
-         number=6
+         number=9
 
-         setTimeout(renderQuestion,5000)
-         setTimeout(restartTimer,5000)
+         setTimeout(renderQuestion,8000)
+         setTimeout(restartTimer,8000)
 }
 
 function wrongChoice(){
@@ -191,8 +205,8 @@ function wrongChoice(){
          questionIndex++;
          incorrectAnswers++
 
-         number=6
-             setTimeout(renderQuestion,5000)
-             setTimeout(restartTimer,5000)
+         number=9
+             setTimeout(renderQuestion,8000)
+             setTimeout(restartTimer,8000)
             
 }

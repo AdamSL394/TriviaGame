@@ -26,7 +26,12 @@
     width: 100px;
     height: 100px;
 }
-
+#incorrectAnswer{
+    color:white;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height:50px;
+}
 #answerFact{
     position: absolute;
     top: 0;
@@ -35,9 +40,7 @@
     height: 70px;
 }
 .timer{
-    position: absolute;
-    left: 710px;
-    top:40%;
+    height:50px;
 }
 #q2{
     top: 400px;
@@ -68,16 +71,11 @@
 .endGame{
     color:white;
     font-size: 24px;
-    bottom: 0px;
-    position: absolute;
-    top: 700px;
-   
+    font-family: Georgia, 'Times New Roman', Times, serif;
 }
 #restartGameButton{
-    width: 150px;
-   
     color:black;
-    
+    border: 2px dotted yellow;
 }
 #footer{
     background-color: black;
