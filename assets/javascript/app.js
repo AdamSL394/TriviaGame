@@ -7,7 +7,7 @@
 var startGame;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
-var timeRemaining = false;
+var timeRemaining= true;
 var number = 15;
 var questionIndex = 0;
 var question = [
@@ -16,10 +16,10 @@ var question = [
         a: ["Yosemite", "Angel Island", "Ahjumawi Lava Springs", "Antelope Valley California Poppy "],
         c: "Yosemite",
         image: "https://photos.smugmug.com/USA/California/Yosemite-National-Park/i-w2x67H8/0/644eb760/500x500!/Roll%2032%20-%2017-500x500!.jpg",
-        fact: (" Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, and for Tunnel View, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.Yosemite National Park is best known for its waterfalls, towering granite monoliths, deep valleys and ancient giant sequoias ")
+        fact: (" Yosemite National Park is in California’s Sierra Nevada mountains. It’s famed for its giant, ancient sequoia trees, the iconic vista of towering Bridalveil Fall and the granite cliffs of El Capitan and Half Dome.")
     },
     {
-        q: "Places to go skydiving ",
+        q: " Which option is the real name of a skydiving company ✈️ ",
         a: ["We Soar","IFly", "Go Jump", "Eagle"],
         c: "Go Jump",
         image: "https://capeadventurezone.com/wp-content/uploads/2018/08/sport-800x567.jpg",
@@ -31,17 +31,14 @@ var question = [
         a: [" Lakers  "," Warriors ", " Heat ", "Celtics"],
         c: "Celtics",
         image: "https://sportsfly.cbsistatic.com/fly-248/bundles/sportsmediacss/images/team-logos/nba/light/BOS.svg",
-        fact:" The Boston Celtics hold the record for the most victories, having won the competition 17 times, as well as winning the competition the most times in a row, winning it eight times from 1959 to 1966. The Los Angeles Lakers have contested the NBA Finals the most times, with 31 appearances. "
+        fact:" The Boston Celtics hold the record winning the competition the most times in a row, winning it eight times from 1959 to 1966. The Los Angeles Lakers have contested the NBA Finals the most times, with 31 appearances. "
 
 
     },
 ]
 
 // starts the game and calls on the run function
-$("#start").on("click", run);
-
-// stops the clock and calls the run function
-$("#stop").on("click", stop);
+$(".start").on("click", run);
 
 // Picking a question function 
 // Emptys Answer
@@ -76,7 +73,7 @@ function renderQuestion() {
         $(".endGame").html(" Final Score " + "correct: " + correctAnswers + " incorrect: " + incorrectAnswers  )
         // stops the game
         stop()
-        console.log("hi")
+       $("#showNumber").text("Game Over" );
     }
     
 }
@@ -109,7 +106,7 @@ $("#answers").on("click", ".answer-button", function(){
         // brings up correct image & tells them they selected an incorrect image 
         wrongChoice();
         // inceases incorrect answers by one
-        incorrectAnswers++
+        
 
         $("#answers").empty();
         $("#q").empty();
@@ -123,6 +120,8 @@ function run() {
     clearInterval(startGame);
     renderQuestion();
     startGame = setInterval(decrement, 1000);
+    timeRemaining=false;
+    $(".start").hide();
   
 }
 
@@ -132,7 +131,7 @@ function decrement() {
     $("#showNumber").html(number);
     if (number === 0) { 
         wrongChoice();
-        incorrectAnswers++
+        $("#q").empty()
         
     }
 }
@@ -150,15 +149,15 @@ function correctChoice(){
     var correctImage = $("<img>");    
         correctImage = $("<img>");
         correctImage.attr("src", question[questionIndex].image);
-        $("#answerImage").html(correctImage);
-        $("#answerFact").text(question[questionIndex].fact)
+         $("#answerImage").html(correctImage);
+         $("#answerFact").text(question[questionIndex].fact)
     
          questionIndex++;
-        correctAnswers++
+         correctAnswers++
          number=6
-        setTimeout(renderQuestion,5000)
-        setTimeout(restartTimer,5000)
-         $("#incorrectAnswer").text("  Thats the correct answer !!");
+         setTimeout(renderQuestion,5000)
+         setTimeout(restartTimer,5000)
+         $("#incorrectAnswer").text("  That was the correct answer !!");
        
 
 }
@@ -173,11 +172,11 @@ function wrongChoice(){
         
          number=6
          questionIndex++;
-        incorrectAnswers++
+         incorrectAnswers++
          setTimeout(renderQuestion,5000)
          setTimeout(restartTimer,5000)
          
-         $("#incorrectAnswer").text("  Thats was the incorrect answer ! ");
+         $("#incorrectAnswer").text("  That was the incorrect answer !! ");
    
 
     
