@@ -35,6 +35,20 @@ var question = [
 
 
     },
+    {
+        q: " Who's won most World Series ? ",
+        a: ["NY Yankees", "Boston Red Soxs", "LA Dodgers", "St. Louis Cardinals"],
+        c: "NY Yankees",
+        image: "https://s.yimg.com/cv/apiv2/default/mlb/20190319/500x500/yankees_wbgs.png",
+        fact: ("The Yankees have the most championships of all MLB teams, having won the World Series a total of 27 times. This is more than twice the number of wins than the second-ranked team, St. Louis Cardinals, and more than three times than its division rival Boston Red Sox.")
+    },
+    {
+        q: " Who can accelerate faster than a space ship ? ",
+        a: ["Cheeta", "Flea", " Jack Rabbit ", " Fly "],
+        c: "Flea",
+        image: "https://i0.wp.com/go-forth.com/wp-content/uploads/2017/04/fleas-pest-control.jpg",
+        fact: (" When they jump, fleas accelerate faster than a space shuttle. In fact, more than 20 times faster. Due to their size and the force used to jump those great distances, their acceleration is approximately 100 times the force of gravity.")
+    }
 ]
 
 // starts the game and calls on the run function
@@ -49,7 +63,7 @@ function renderQuestion() {
     $("#answers").empty();
     $("#incorrectAnswer").empty();
     // If Question index is not 3 it will render next question
-    if (questionIndex < 3 ) {
+    if (questionIndex < 5 ) {
         // Go on page and grab question at question index which starts at 0 
         $("#q").html("<p>" + question[questionIndex].q + "</p>");
         // Looping through question answer index 
@@ -132,6 +146,7 @@ function decrement() {
     if (number === 0) { 
         wrongChoice();
         $("#q").empty()
+        $("#answers").empty();
         
     }
 }
