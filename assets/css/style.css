@@ -9,18 +9,15 @@
     
     position: relative;
     margin: 0 auto;
-    left: 400px;
+    /* left: 400px; */
+    display: inline-block;
+    text-align:center;
   }
-  .middle{
-    /* position: relative;
-    margin: 960px; */
-}
-#q{
-    position: absolute;
-    left: 590px;
-    top: 350px;
-    margin-left: 35px;
-    width: 300px
+#questionsAsked{
+    color:white;
+    font-size: 24px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    height:50px;
 }
 #answerImage{
     position: absolute;
@@ -54,9 +51,10 @@
     top: 480px;
 }
 #incorrectAnswer{
-    margin-left: 560px;
+    height: 50px;
+    margin-left: 0px;
     color:white;
-    margin-top: 100px;
+   
 }
 .display-4{
     margin-left: 550px;
@@ -74,6 +72,12 @@
     position: absolute;
     top: 700px;
    
+}
+#restartGameButton{
+    width: 150px;
+   
+    color:black;
+    
 }
 #footer{
     background-color: black;

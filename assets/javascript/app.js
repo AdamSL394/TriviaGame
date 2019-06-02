@@ -65,7 +65,7 @@ function renderQuestion() {
     // If Question index is not 3 it will render next question
     if (questionIndex < 5 ) {
         // Go on page and grab question at question index which starts at 0 
-        $("#q").html("<p>" + question[questionIndex].q + "</p>");
+        $("#questionsAsked").html("<p>" + question[questionIndex].q + "</p>");
         // Looping through question answer index 
         for(var i= 0; i < question[questionIndex].a.length; i++){
             // we make a button for each iteration " each answer "
@@ -84,10 +84,24 @@ function renderQuestion() {
     // if there are no more question to render *** question index = 3 
     else {
         // Print to the screen 
-        $(".endGame").html(" Final Score " + "correct: " + correctAnswers + " incorrect: " + incorrectAnswers  )
-        // stops the game
-        stop()
-       $("#showNumber").text("Game Over" );
+        $(".endGame").html(" Final Score " + "correct: " + correctAnswers + " incorrect: " + incorrectAnswers);
+        stop();
+        $("#showNumber").text("Game Over" );
+        
+        
+        
+        
+        var restartGameButton = $("<button>");
+        restartGameButton.attr("class", "btn btn-primary btn-lg");
+        $("#restartGameButton").append(restartGameButton);
+        $("#restartGameButton").text(" Restart Game ")
+        $("#restartGameButton").on("click",function(){
+            correctAnswers=0;
+            incorrectAnswers=0;
+            questionIndex=0;
+            run();
+
+        })
     }
     
 }
@@ -98,21 +112,10 @@ $("#answers").on("click", ".answer-button", function(){
     var userClicked = $(this).data("name");
         // correct answer clicked 
         if(userClicked === question[questionIndex].c){
-        
         $("#answers").empty();
-        $("#q").empty();
-       
-        
+        $("#questionsAsked").empty();
         // renders the correct choice image
-       
         correctChoice()
-        console.log("hi")
-        
-        
-        // score goes up one
-        // correctAnswers++;
-        
-      
     }
     else {
         // if user picks a wrong chice 
@@ -123,7 +126,7 @@ $("#answers").on("click", ".answer-button", function(){
         
 
         $("#answers").empty();
-        $("#q").empty();
+        $("#questionsAsked").empty();
 
         
     }
@@ -134,9 +137,10 @@ function run() {
     clearInterval(startGame);
     renderQuestion();
     startGame = setInterval(decrement, 1000);
-    timeRemaining=false;
+    
     $(".start").hide();
-  
+    $(".endGame").hide();
+    $("#restartGameButton").hide();
 }
 
 function decrement() {
@@ -145,7 +149,7 @@ function decrement() {
     $("#showNumber").html(number);
     if (number === 0) { 
         wrongChoice();
-        $("#q").empty()
+        $("#questionsAsked").empty()
         $("#answers").empty();
         
     }
@@ -166,15 +170,14 @@ function correctChoice(){
         correctImage.attr("src", question[questionIndex].image);
          $("#answerImage").html(correctImage);
          $("#answerFact").text(question[questionIndex].fact)
-    
+         $("#incorrectAnswer").text("  That was the correct answer !!");
          questionIndex++;
          correctAnswers++
+        
          number=6
+
          setTimeout(renderQuestion,5000)
          setTimeout(restartTimer,5000)
-         $("#incorrectAnswer").text("  That was the correct answer !!");
-       
-
 }
 
 function wrongChoice(){
@@ -184,15 +187,12 @@ function wrongChoice(){
         correctImage.attr("src", question[questionIndex].image);
         $("#answerImage").html(correctImage);
         $("#answerFact").text(question[questionIndex].fact)
-        
-         number=6
+        $("#incorrectAnswer").html("  That was the incorrect answer !! ");
          questionIndex++;
          incorrectAnswers++
-         setTimeout(renderQuestion,5000)
-         setTimeout(restartTimer,5000)
-         
-         $("#incorrectAnswer").text("  That was the incorrect answer !! ");
-   
 
-    
+         number=6
+             setTimeout(renderQuestion,5000)
+             setTimeout(restartTimer,5000)
+            
 }
