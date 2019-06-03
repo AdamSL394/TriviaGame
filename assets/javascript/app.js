@@ -7,7 +7,6 @@
 var startGame;
 var correctAnswers = 0;
 var incorrectAnswers = 0;
-var timeRemaining= true;
 var number = 15;
 var questionIndex = 0;
 var question = [
@@ -62,8 +61,9 @@ $("#restartGameButton").hide();
 // Emptys Answer
 function renderQuestion() {
     
-    restartTimer();
     
+    $("#showNumber").show();
+    restartTimer();
     $("#answerFact").empty();
     $("#answerImage").empty();
     $("#answers").empty();
@@ -157,8 +157,6 @@ function run() {
 
 function decrement() {
     number--;
-    
-   
     $("#showNumber").html(number);
     if (number === 0) { 
         wrongChoice();
@@ -188,8 +186,8 @@ function correctChoice(){
          questionIndex++;
          correctAnswers++
         
-         number=9
-
+        //  number=8
+        $("#showNumber").hide();
          setTimeout(renderQuestion,8000)
          setTimeout(restartTimer,8000)
 }
@@ -205,7 +203,8 @@ function wrongChoice(){
          questionIndex++;
          incorrectAnswers++
 
-         number=9
+        //  number=8
+        $("#showNumber").hide();
              setTimeout(renderQuestion,8000)
              setTimeout(restartTimer,8000)
             
