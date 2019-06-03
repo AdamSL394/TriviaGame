@@ -60,8 +60,6 @@ $("#restartGameButton").hide();
 // Picking a question function 
 // Emptys Answer
 function renderQuestion() {
-    
-    
     $("#showNumber").show();
     restartTimer();
     $("#answerFact").empty();
@@ -84,7 +82,6 @@ function renderQuestion() {
             button.attr("data-name", question[questionIndex].a[i])
             // we append the buttons to the answer id 
             $("#answers").append(button)
-
         }
     }
     // if there are no more question to render *** question index = 3 
@@ -100,8 +97,6 @@ function renderQuestion() {
         
         var restartGameButton = $("<button>");
         restartGameButton.attr("class", "btn btn-primary btn-lg");
-        
-
         $("#restartGameButton").append(restartGameButton);
         $("#restartGameButton").text(" Restart Game ")
         $("#restartGameButton").show();
@@ -149,7 +144,6 @@ function run() {
     clearInterval(startGame);
     renderQuestion();
     startGame = setInterval(decrement, 1000);
-    
     $(".start").hide();
     $("#showNumber").show();
     
@@ -162,14 +156,11 @@ function decrement() {
         wrongChoice();
         $("#questionsAsked").empty()
         $("#answers").empty();
-       
-        
     }
 }
 
 function restartTimer() {
     number = 15
-
 }
 
 function stop() {
@@ -185,8 +176,6 @@ function correctChoice(){
          $("#incorrectAnswer").text("  That was the correct answer !!");
          questionIndex++;
          correctAnswers++
-        
-        //  number=8
         $("#showNumber").hide();
          setTimeout(renderQuestion,8000)
          setTimeout(restartTimer,8000)
@@ -202,8 +191,6 @@ function wrongChoice(){
         $("#incorrectAnswer").html("  That was the incorrect answer !! ");
          questionIndex++;
          incorrectAnswers++
-
-        //  number=8
         $("#showNumber").hide();
              setTimeout(renderQuestion,8000)
              setTimeout(restartTimer,8000)
