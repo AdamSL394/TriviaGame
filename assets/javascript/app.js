@@ -147,6 +147,7 @@ function run() {
     $(".start").hide();
     $("#showNumber").show();
     
+    
 }
 
 function decrement() {
@@ -176,7 +177,8 @@ function correctChoice(){
          $("#incorrectAnswer").text("  That was the correct answer !!");
          questionIndex++;
          correctAnswers++
-        $("#showNumber").hide();
+         number=9
+
          setTimeout(renderQuestion,8000)
          setTimeout(restartTimer,8000)
 }
@@ -191,7 +193,7 @@ function wrongChoice(){
         $("#incorrectAnswer").html("  That was the incorrect answer !! ");
          questionIndex++;
          incorrectAnswers++
-        $("#showNumber").hide();
+         number=9
              setTimeout(renderQuestion,8000)
              setTimeout(restartTimer,8000)
             

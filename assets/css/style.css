@@ -4,6 +4,9 @@
     height: 100vh;
     margin-bottom: 0px !important;
 }
+.center{
+    margin-left: 650px;
+}
 
 #answers{
     
@@ -60,13 +63,13 @@
    
 }
 .display-4{
-    margin-left: 550px;
+    margin-left: 630px;
 }
 .lead{
-    margin-left: 545px;
+    margin-left: 630px;
 }
 .start{
-    margin-left: 563px;
+    margin-left: 650px;
 }
 .endGame{
     color:white;
